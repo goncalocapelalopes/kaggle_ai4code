@@ -1,0 +1,16 @@
+*   One approach can be the following, given a set of cells, output which one 
+    should be the next in the order. Start with the special case of nocell.
+    Repeat until no cells are left. Try using a Siamese Network.
+    Each training example is a triplet (curr_cell, next_cell, some_other_cell).
+    Use triplet loss function.
+    Each component of the triplet should be either a sentence_embedding or a matrix
+    of equally padded word embeddings. For markdown cells, normal language models 
+    should do the trick, for code cells need to research on representations of code.
+    Instead of Siamese, use a something akin to a language model, instead of masking
+    a word, mask a cell and train on that in a semi-supervised fashion. Call it a Notebook Order Model.
+
+*   Generate every order possible. Model assigns a score to each ordering.
+    Ordering with highest score wins. Can use Siamese Network once again, or
+    a Notebook Order Model.
+
+
